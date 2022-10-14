@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <h6 class="ml-4">Công ty PEACE</h6>
+    <h1 class="text-center">DANH SÁCH CÁC TOUR</h1>
+
+    <div class="d-flex justify-content-center flex-wrap">
+        <div style="width: 80%;" class="mb-2">
+            <a href="\create" class="btn btn-primary ">Add</a></div>
+        <table class="table table-bordered" style="width: 80%;">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên tour</th>
+                    <th>Thể loại</th>
+                    <th>Thởi gian</th>
+                    <th>Giá (VND)</th>
+                    <th>Ghi chú</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% data.forEach((e) => { %>
+                    <tr>
+                        <td>
+                            <%= e.maTour%>
+                        </td>
+                        <td>
+                            <%= e.tenTour%>
+                        </td>
+                        <td>
+                            <%= e.theLoai%>
+                        </td>
+                        <td>
+                            <%= e.thoiGian%>
+                        </td>
+                        <td>
+                            <%= e.gia%>
+                        </td>
+                        <td>
+                            <%= e.ghiChu%>
+                        </td>
+                        <td>
+                            <form action="/delete" enctype="multipart/form-data" method="post">
+                                <input type="hidden" name="maTour" value="<%= e.maTour%>">
+                                <input type="submit" value="delete" class="btn btn-danger">
+                            </form>
+                        </td>
+                    </tr>
+
+                    <%}) %>
+            </tbody>
+        </table>
+        <div style="width: 80%;" class="mb-2">
+            <h6>Thiết kế bởi: Nguyễn Nhật quang_19437361</h6>
+        </div>
+    </div>
+</body>
+
+</html>
